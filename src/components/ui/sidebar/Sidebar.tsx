@@ -1,20 +1,19 @@
 'use client';
-import React from 'react';
-import {
-  IoCloseOutline,
-  IoPerson,
-  IoPersonOutline,
-  IoSearch,
-  IoTicket,
-  IoTicketOutline,
-  IoLogInOutline,
-  IoLogOutOutline,
-  IoShirtOutline,
-  IoPeopleOutline
-} from 'react-icons/io5';
+
 import Link from 'next/link';
 import clsx from 'clsx';
-import { useUIStore } from '@/store';
+import {
+  IoCloseOutline,
+  IoLogInOutline,
+  IoLogOutOutline,
+  IoPeopleOutline,
+  IoPersonOutline,
+  IoSearchOutline,
+  IoShirtOutline,
+  IoTicketOutline
+} from 'react-icons/io5';
+
+import { useUIStore } from '@/store/index';
 
 export const Sidebar = () => {
   const isSideMenuOpen = useUIStore((state) => state.isSideMenuOpen);
@@ -24,7 +23,7 @@ export const Sidebar = () => {
     <div>
       {/* Background black */}
       {isSideMenuOpen && (
-        <div className="fixed top-0  left-0 w-screen h-screen z-10 bg-black opacity-30" />
+        <div className="fixed top-0 left-0 w-screen h-screen z-10 bg-black opacity-30" />
       )}
 
       {/* Blur */}
@@ -38,7 +37,7 @@ export const Sidebar = () => {
       {/* Sidemenu */}
       <nav
         className={clsx(
-          'fixed p-5 right-0 top-0 w-[500px] h-screen bg-white z-20 shadow-2xl transform traslation-all duration-300',
+          'fixed p-5 right-0 top-0 w-[500px] h-screen bg-white z-20 shadow-2xl transform transition-all duration-300',
           {
             'translate-x-full': !isSideMenuOpen
           }
@@ -49,16 +48,19 @@ export const Sidebar = () => {
           className="absolute top-5 right-5 cursor-pointer"
           onClick={() => closeMenu()}
         />
+
         {/* Input */}
         <div className="relative mt-14">
-          <IoSearch size={20} className="absolute top-2 left-2" />
+          <IoSearchOutline size={20} className="absolute top-2 left-2" />
           <input
             type="text"
             placeholder="Buscar"
-            className="w-full bg-gray-50 rounded pl-10 border-b-2 text-xl border-gray-200 focus:outline-none focus:border-blue-500"
+            className="w-full bg-gray-50 rounded pl-10 py-1 pr-10 border-b-2 text-xl border-gray-200 focus:outline-none focus:border-blue-500"
           />
         </div>
+
         {/* Menú */}
+
         <Link
           href="/"
           className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
@@ -66,6 +68,7 @@ export const Sidebar = () => {
           <IoPersonOutline size={30} />
           <span className="ml-3 text-xl">Perfil</span>
         </Link>
+
         <Link
           href="/"
           className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
@@ -73,6 +76,7 @@ export const Sidebar = () => {
           <IoTicketOutline size={30} />
           <span className="ml-3 text-xl">Ordenes</span>
         </Link>
+
         <Link
           href="/"
           className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
@@ -80,6 +84,7 @@ export const Sidebar = () => {
           <IoLogInOutline size={30} />
           <span className="ml-3 text-xl">Ingresar</span>
         </Link>
+
         <Link
           href="/"
           className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
@@ -89,7 +94,8 @@ export const Sidebar = () => {
         </Link>
 
         {/* Line Separator */}
-        <div className="w-full h-px bg-gray-500 my-10" />
+        <div className="w-full h-px bg-gray-200 my-10" />
+
         <Link
           href="/"
           className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
@@ -97,13 +103,15 @@ export const Sidebar = () => {
           <IoShirtOutline size={30} />
           <span className="ml-3 text-xl">Productos</span>
         </Link>
+
         <Link
           href="/"
           className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
         >
           <IoTicketOutline size={30} />
-          <span className="ml-3 text-xl">Productos</span>
+          <span className="ml-3 text-xl">Ordenes</span>
         </Link>
+
         <Link
           href="/"
           className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
