@@ -5,7 +5,10 @@ import { TopMenu } from '@/components/idex';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'LRN',
+  title: {
+    template: '%s - LRN | hops',
+    default: 'INICIO'
+  },
   description: 'Lupulos Rio Negro'
 };
 

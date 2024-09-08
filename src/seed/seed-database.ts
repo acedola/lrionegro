@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { initialData } from './seed';
+import { initialData } from './seed--';
 import prisma from '../lib/prisma';
 
 async function main() {
